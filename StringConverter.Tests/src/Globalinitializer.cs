@@ -12,7 +12,9 @@ public class Globalinitializer
         _dictionary = new Dictionary<int, string>
         {
             { 3, "fizz" },
-            { 5, "buzz" }
+            { 5, "buzz" },
+            { 4, "muzz" },
+            { 7, "guzz" }
         };
     }
 }

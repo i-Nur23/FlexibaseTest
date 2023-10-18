@@ -5,7 +5,9 @@ using StringConverter;
 Dictionary<int, string> numbersAndStringsToConvert = new Dictionary<int, string>
 {
     { 3, "fizz" },
-    { 5, "buzz" }
+    { 5, "buzz" },
+    { 4, "muzz" },
+    { 7, "guzz" }
 };
 
 var rawString = Console.ReadLine();
