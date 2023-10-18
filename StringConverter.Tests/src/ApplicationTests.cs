@@ -28,15 +28,16 @@ public class ApplicationTests : Globalinitializer
         Assert.AreEqual(result, "Один из элементов строки не число");
     }
     
-    [TestCase("1,2,3,4,5", "1, 2, fizz, 4, buzz")]
-    [TestCase("1", "1")]
-    [TestCase("15", "fizz-buzz")]
-    public void Execute_RightNumbers_ReturnRightResult(string value, string expectedResult)
+    [Test]
+    public void Execute_RightNumbers_ReturnRightResult()
     {
-        var app = new Application(_dictionary, value);
+        var initString = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15";
+        var outString = "1, 2, fizz, 4, buzz, fizz, 7, 8, fizz, buzz, 11, fizz, 13, 14, fizz-buzz";
+        
+        var app = new Application(_dictionary, initString);
 
         var result = app.Execute();
 
-        Assert.AreEqual(result, expectedResult);
+        Assert.AreEqual(result, outString);
     }
 }
