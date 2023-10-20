@@ -1,28 +1,33 @@
-﻿using System.Text;
-using Microsoft.VisualBasic;
+﻿namespace StringConverter;
 
-namespace StringConverter;
-
-public class NumbersHandler
+/// <summary>
+/// Конвертер списка чисел в строку  
+/// </summary>
+public class NumbersConverter
 {
-    private readonly List<DivisorHandler> _dividerHandlers;
+    private readonly List<IDivisorHandler> _divisorHandlers;
     
 
-    public NumbersHandler(List<DivisorHandler> handlers)
+    public NumbersConverter(List<IDivisorHandler> handlers)
     {
-        _dividerHandlers = handlers;
+        _divisorHandlers = handlers;
     }
 
+    /// <summary>
+    /// Метод, конвертирующий список чисел в строку
+    /// </summary>
+    /// <param name="numbers">Список чисел</param>
+    /// <returns>Новая строка с заменёнными числами</returns>
     public string ConvertNumbers(List<int> numbers)
     {
-        string swappedString;
         List<string> resultStringArray = new List<string>();
+        string swappedString;
 
         foreach (var number in numbers)
         {
             List<string> numberStringArray = new List<string>();
 
-            foreach (var handler in _dividerHandlers)
+            foreach (var handler in _divisorHandlers)
             {
                 if (handler.IsDividing(number, out swappedString))
                 {

@@ -2,12 +2,13 @@
 
 using StringConverter;
 
-Dictionary<int, string> numbersAndStringsToConvert = new Dictionary<int, string>
+Dictionary<int[], string> numbersAndStringsToConvert = new Dictionary<int[], string>
 {
-    { 3, "fizz" },
-    { 5, "buzz" },
-    { 4, "muzz" },
-    { 7, "guzz" }
+    { new []{3}, "dog" },
+    { new []{5}, "cat" },
+    { new []{4}, "muzz" },
+    { new []{7}, "guzz" },
+    { new []{3, 5}, "good-boy" }
 };
 
 var rawString = Console.ReadLine();

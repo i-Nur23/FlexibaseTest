@@ -1,16 +1,23 @@
 ﻿namespace StringConverter;
 
+/// <summary>
+/// Класс, отвечающий за основную работу приложения 
+/// </summary>
 public class Application
 {
-    private readonly Dictionary<int, string> _numberToStringSwaps;
+    private readonly Dictionary<int[], string> _numberToStringSwaps;
     private readonly string _rawString;
-
-    public Application(Dictionary<int, string> numberToStringSwaps, string rawString)
+    
+    public Application(Dictionary<int[], string> numberToStringSwaps, string rawString)
     {
         _rawString = rawString;
         _numberToStringSwaps = numberToStringSwaps;
     }
 
+    /// <summary>
+    /// Метод запускающий механизм обработки строки в новую
+    /// </summary>
+    /// <returns>Новая строка или сообщение об ошибке</returns>
     public string Execute()
     {
         var divisorHandlers = DivisorHandlersFactory.CreateHandlers(_numberToStringSwaps);
@@ -35,7 +42,7 @@ public class Application
         }
 
 
-        var numbersHandler = new NumbersHandler(divisorHandlers);
+        var numbersHandler = new NumbersConverter(divisorHandlers);
         return numbersHandler.ConvertNumbers(numbersList);
     }
 }

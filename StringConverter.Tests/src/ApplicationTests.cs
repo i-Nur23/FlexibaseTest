@@ -33,13 +33,13 @@ public class ApplicationTests : Globalinitializer
     {
         var initString = "1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 60, 105, 420";
         var outString =
-            "1, 2, fizz, muzz, buzz, fizz, guzz, muzz, fizz, buzz, 11, fizz-muzz, 13, guzz, fizz-buzz, fizz-buzz-muzz, " +
-            "fizz-buzz-guzz, fizz-buzz-muzz-guzz";
+            "1, 2, dog, muzz, cat, dog, guzz, muzz, dog, cat, 11, dog-muzz, 13, " +
+            "guzz, good-boy, good-boy-muzz, good-boy-guzz, good-boy-muzz-guzz";
         
         var app = new Application(_dictionary, initString);
 
         var result = app.Execute();
 
-        Assert.AreEqual(result, outString);
+        Assert.AreEqual(outString, result);
     }
 }
